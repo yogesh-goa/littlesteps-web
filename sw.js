@@ -2,9 +2,12 @@
 const CACHE_VERSION = 'littlesteps-v1';
 const ASSETS_CACHE = 'littlesteps-assets-v1';
 
+// Determine base path from Service Worker location
+const basePath = self.location.pathname.substring(0, self.location.pathname.lastIndexOf('/') + 1);
+
 const STATIC_ASSETS = [
-  '/',
-  '/index.html'
+  basePath,
+  basePath + 'index.html'
 ];
 
 self.addEventListener('install', (event) => {

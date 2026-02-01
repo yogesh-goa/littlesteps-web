@@ -2,8 +2,8 @@
   "name": "Little Steps - Kids Learning Platform",
   "short_name": "LittleSteps",
   "description": "Educational image-based quizzes for kids",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
   "theme_color": "#FBBF24",
@@ -11,13 +11,13 @@
   "categories": ["education", "kids"],
   "screenshots": [
     {
-      "src": "/images/screenshot-1.png",
+      "src": "./images/screenshot-1.png",
       "sizes": "540x720",
       "type": "image/png",
       "form_factor": "narrow"
     },
     {
-      "src": "/images/screenshot-2.png",
+      "src": "./images/screenshot-2.png",
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide"
@@ -25,19 +25,19 @@
   ],
   "icons": [
     {
-      "src": "/images/icon-192.png",
+      "src": "./images/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/images/icon-512.png",
+      "src": "./images/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "/images/icon-maskable.png",
+      "src": "./images/icon-maskable.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
@@ -48,10 +48,10 @@
       "name": "Play Quiz",
       "short_name": "Play",
       "description": "Start playing quizzes",
-      "url": "/play",
+      "url": "./play",
       "icons": [
         {
-          "src": "/images/icon-96.png",
+          "src": "./images/icon-96.png",
           "sizes": "96x96"
         }
       ]
