@@ -2,18 +2,22 @@
 const CACHE_VERSION = 'littlesteps-v1';
 const ASSETS_CACHE = 'littlesteps-assets-v1';
 
-// Determine base path from Service Worker location
-const basePath = self.location.pathname.substring(0, self.location.pathname.lastIndexOf('/') + 1);
-
 const STATIC_ASSETS = [
-  basePath,
-  basePath + 'index.html'
+  './',
+  './index.html'
 ];
+
+const BASE_URL = self.location.pathname.replace(/\/sw\.js$/, '') || './';
+const FULL_STATIC_ASSETS = STATIC_ASSETS.map(url => {
+  if (url === './') return BASE_URL;
+  if (url.startsWith('./')) return BASE_URL + url.slice(2);
+  return url;
+});
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_VERSION).then((cache) => {
-      return cache.addAll(STATIC_ASSETS).catch(() => {
+      return cache.addAll(FULL_STATIC_ASSETS).catch(() => {
         console.warn('Failed to cache some assets');
       });
     })
@@ -43,7 +47,7 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return;
 
   // API calls - network first
-  if (url.pathname.startsWith('/api/')) {
+  if (url.pathname.includes('/api/')) {
     event.respondWith(
       fetch(request)
         .then((response) => {
